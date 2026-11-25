@@ -141,7 +141,7 @@ def run_cfd_verification():
     )
     rho0_t = dom_test.initial_density()
 
-    cfl_cases = [0.5, 0.9, 1.5]
+    cfl_cases = [0.5, 0.9, 2.3]
     cfl_histories = {}
     for cfl_val in cfl_cases:
         sol_cfl = MigrationSolver(dom_test, diffusion_coeff=8.0, cfl=cfl_val)
@@ -173,7 +173,7 @@ def run_cfd_verification():
     cfl_styles = {
         0.5: ("g-", "CFL = 0.5 (Stable)"),
         0.9: ("b--", "CFL = 0.9 (Stable, within 2D ADR limit)"),
-        1.5: ("r-", "CFL = 1.5 (Unstable Blow-Up)"),
+        2.3: ("r-", "CFL = 2.3 (Unstable Blow-Up)"),
     }
     for cfl_val in cfl_cases:
         t_arr, p_arr = cfl_histories[cfl_val]
